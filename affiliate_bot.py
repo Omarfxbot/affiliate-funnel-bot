@@ -54,9 +54,9 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     text = """
 مرحبا 👋
 
-📈 باغي إشارات الذهب جاهزة؟
+📈 باغي إشارات GOLD جاهزة؟
 
- كيقرا المارشي وكيعطيك فرص واضحة 🤖 AI BOT
+🤖 AI BOT كيقرا المارشي وكيعطيك فرص واضحة
 
 باش تبدا 👇
 اختار واحد من المنصات وسجل

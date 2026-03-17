@@ -83,10 +83,10 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
             f"""
 🔥 اختيار احترافي
 
-📥 التسجيل:
+📌 التسجيل:
 {EXNESS_LINK}
 
-📺 شرح التسجيل خطوة بخطوة:
+🎥 شرح التسجيل خطوة بخطوة:
 {EXNESS_TUTORIAL}
 
 ومن بعد رجع واضغط:
@@ -97,17 +97,14 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
     elif "RoboForex" in text:
 
         await update.message.reply_text(
-    f"""
-...
-"""
-)
+            f"""
 🎁 تبدأ ب 10$ فقط
-وتاخد Bonus 30$
+ومع التوثيق تاخذ Bonus 30$
 
-📥 التسجيل:
+📌 التسجيل:
 {ROBO_LINK}
 
-📺 شرح التسجيل:
+🎥 شرح التسجيل:
 {ROBO_TUTORIAL}
 
 ومن بعد رجع واضغط:
@@ -115,24 +112,26 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
 """
         )
 
-elif "سجلت بالفعل" in text:
+    elif "أكملت التسجيل" in text:
 
-    keyboard = [
-        [InlineKeyboardButton("📩 تواصل معايا دابا", url="https://t.me/OmartradingAux")]
-    ]
+        from telegram import InlineKeyboardButton, InlineKeyboardMarkup
 
-    reply_markup = InlineKeyboardMarkup(keyboard)
+        keyboard = [
+            [InlineKeyboardButton("📩 تواصل معايا دابا", url="https://t.me/OmartradingAux")]
+        ]
 
-    await update.message.reply_text(
-        """
+        reply_markup = InlineKeyboardMarkup(keyboard)
+
+        await update.message.reply_text(
+            """
 👌 ممتاز
 
 تواصل معايا هنا باش نتأكد من التسجيل 📩
 
 ومن بعد نعطيك الولوج لقناة VIP 🔐
 """,
-        reply_markup=reply_markup
-    )
+            reply_markup=reply_markup
+        )
 
 # -------- DASHBOARD --------
 

@@ -97,7 +97,10 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
     elif "RoboForex" in text:
 
         await update.message.reply_text(
-            f"""
+    f"""
+...
+"""
+)
 🎁 تبدأ ب 10$ فقط
 وتاخد Bonus 30$
 

@@ -54,7 +54,15 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     text = """
 مرحبا 👋
 
-تقدر تبدأ وتشوف كيفاش الخدمة خدامة 👇
+📈 باغي إشارات الذهب جاهزة؟
+
+ كيقرا المارشي وكيعطيك فرص واضحة 🤖 AI BOT
+
+باش تبدا 👇
+اختار واحد من المنصات وسجل
+
+ومن بعد رجع واضغط:
+✅ سجلت بالفعل
 """
 
     await update.message.reply_text(text, reply_markup=reply_markup)

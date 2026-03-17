@@ -16,7 +16,7 @@ DATABASE_URL = os.getenv("DATABASE_URL")
 EXNESS_LINK = "https://one.exnessonelink.com/a/zi8w32eknv"
 ROBO_LINK = "https://my.roboforex.com/en/?a=omawl"
 
-SIGNAL_CHANNEL = "https://t.me/OmarFXSignal"
+SIGNAL_CHANNEL = "https://t.me/OmarSwingVIP"
 
 
 # -------- DATABASE --------

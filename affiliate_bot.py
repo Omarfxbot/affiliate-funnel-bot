@@ -1,7 +1,7 @@
 import os
 import psycopg2
 
-from telegram import Update, ReplyKeyboardMarkup, KeyboardButton
+from telegram import Update, ReplyKeyboardMarkup, KeyboardButton, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import (
     ApplicationBuilder,
     CommandHandler,
@@ -16,7 +16,8 @@ DATABASE_URL = os.getenv("DATABASE_URL")
 EXNESS_LINK = "https://one.exnessonelink.com/a/zi8w32eknv"
 ROBO_LINK = "https://my.roboforex.com/en/?a=omawl"
 
-SIGNAL_CHANNEL = "https://t.me/OmarSwingVIP"
+# رابط ديالك باش يتواصل معاك
+CONTACT_LINK = "https://t.me/OmarFXSignal"
 
 
 # -------- DATABASE --------
@@ -53,7 +54,13 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     text = """
 مرحبا 👋
 
-باش تستافد من إشارات الذهب خاصك تسجل فواحدة من المنصات 👇
+باش تستافد من إشارات الذهب:
+
+1️⃣ سجل فواحدة من المنصات  
+2️⃣ دير dépôt  
+3️⃣ اضغط "سجلت بالفعل"  
+
+⚠️ الدخول للقناة يتم بعد التأكد
 """
 
     await update.message.reply_text(text, reply_markup=reply_markup)
@@ -69,12 +76,12 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
         await update.message.reply_text(
             f"""
-🔥 اختيار احترافي.
+🔥 اختيار احترافي
 
 سجل من هنا 👇
 {EXNESS_LINK}
 
-من بعد التسجيل رجع واضغط:
+من بعد رجع واضغط:
 ✅ سجلت بالفعل
 """
         )
@@ -83,30 +90,33 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
         await update.message.reply_text(
             f"""
-🎁 تبدأ ب 10$ فقط
-
-ومع التوثيق تحصل على Bonus 30$
+🎁 تبدأ ب 10$ + Bonus 30$
 
 سجل من هنا 👇
 {ROBO_LINK}
 
-من بعد التسجيل رجع واضغط:
+من بعد رجع واضغط:
 ✅ سجلت بالفعل
 """
         )
 
     elif "سجلت بالفعل" in text:
 
+        keyboard = [
+            [InlineKeyboardButton("📩 تواصل معايا للتفعيل", url=CONTACT_LINK)]
+        ]
+
+        reply_markup = InlineKeyboardMarkup(keyboard)
+
         await update.message.reply_text(
-            f"""
+            """
 ممتاز 🔥
 
-ادخل لقناة الإشارات من هنا 👇
+📌 صيفط ليا screenshot ديال التسجيل + dépôt
 
-{SIGNAL_CHANNEL}
-
-⚠️ دير Stop Loss دائما
-"""
+ومن بعد نفعّل ليك الدخول لقناة VIP 👇
+""",
+            reply_markup=reply_markup
         )
 
 
@@ -157,7 +167,4 @@ app.add_handler(MessageHandler(filters.TEXT, handle_message))
 
 print("Affiliate Funnel Bot Running")
 
-app.run_polling(
-    drop_pending_updates=True,
-    close_loop=False
-)
+app.run_polling(drop_pending_updates=True)

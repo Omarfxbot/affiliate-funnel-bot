@@ -9,7 +9,7 @@ from telegram.ext import (
     MessageHandler,
     filters
 )
-
+from telegram import InlineKeyboardButton, InlineKeyboardMarkup
 BOT_TOKEN = os.getenv("BOT_TOKEN")
 DATABASE_URL = os.getenv("DATABASE_URL")
 
@@ -112,20 +112,23 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
 """
         )
 
-    elif "أكملت التسجيل" in text:
+elif "سجلت بالفعل" in text:
+   
+        [InlineKeyboardButton("📩 تواصل معايا دابا", url="https://t.me/OmartradingAux")]
+    ]
 
-        await update.message.reply_text(
-            f"""
+    reply_markup = InlineKeyboardMarkup(keyboard)
+
+    await update.message.reply_text(
+        """
 ممتاز 👌
 
-تواصل معايا هنا باش نتأكد من التسجيل 👇
+تواصل معايا هنا باش نتأكد من التسجيل 📩
 
-👉 {ADMIN_USERNAME}
-
-🔒 ومن بعد نعطيك الولوج لقناة VIP
-"""
-        )
-
+ومن بعد نعطيك الولوج لقناة VIP 🔒
+""",
+        reply_markup=reply_markup
+    )
 
 # -------- DASHBOARD --------
 

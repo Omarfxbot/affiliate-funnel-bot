@@ -49,7 +49,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     keyboard = [
         [KeyboardButton("🔥 منصة احترافية Exness")],
         [KeyboardButton("🎁 RoboForex Bonus 30$ + 10$")],
-        [KeyboardButton("✅ سجلت بالفعل")]
+        [KeyboardButton("✅ أكملت التسجيل")]
     ]
 
     reply_markup = ReplyKeyboardMarkup(keyboard, resize_keyboard=True)
@@ -65,7 +65,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
 اختار واحد من المنصات وسجل
 
 ومن بعد رجع واضغط:
-✅ سجلت بالفعل
+✅ أكملت التسجيل
 """
 
     await update.message.reply_text(text, reply_markup=reply_markup)
@@ -90,7 +90,7 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
 {EXNESS_TUTORIAL}
 
 ومن بعد رجع واضغط:
-✅ سجلت بالفعل
+✅ أكملت التسجيل
 """
         )
 
@@ -108,11 +108,11 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
 {ROBO_TUTORIAL}
 
 ومن بعد رجع واضغط:
-✅ سجلت بالفعل
+✅ أكملت التسجيل
 """
         )
 
-    elif "سجلت بالفعل" in text:
+    elif "أكملت التسجيل" in text:
 
         await update.message.reply_text(
             f"""

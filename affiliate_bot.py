@@ -1,7 +1,7 @@
 import os
 import psycopg2
 
-from telegram import Update, ReplyKeyboardMarkup, KeyboardButton, InlineKeyboardButton, InlineKeyboardMarkup
+from telegram import Update, ReplyKeyboardMarkup, KeyboardButton
 from telegram.ext import (
     ApplicationBuilder,
     CommandHandler,
@@ -16,8 +16,8 @@ DATABASE_URL = os.getenv("DATABASE_URL")
 EXNESS_LINK = "https://one.exnessonelink.com/a/zi8w32eknv"
 ROBO_LINK = "https://my.roboforex.com/en/?a=omawl"
 
-# رابط ديالك باش يتواصل معاك
-CONTACT_LINK = "https://t.me/OmarFXSignal"
+# بدل هاد اليوزرنيم ديالك 👇
+ADMIN_USERNAME = "@OmartradingAux"
 
 
 # -------- DATABASE --------
@@ -54,13 +54,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     text = """
 مرحبا 👋
 
-باش تستافد من إشارات الذهب:
-
-1️⃣ سجل فواحدة من المنصات  
-2️⃣ دير dépôt  
-3️⃣ اضغط "سجلت بالفعل"  
-
-⚠️ الدخول للقناة يتم بعد التأكد
+تقدر تبدأ وتشوف كيفاش الخدمة خدامة 👇
 """
 
     await update.message.reply_text(text, reply_markup=reply_markup)
@@ -81,7 +75,7 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
 سجل من هنا 👇
 {EXNESS_LINK}
 
-من بعد رجع واضغط:
+ومن بعد رجع واضغط:
 ✅ سجلت بالفعل
 """
         )
@@ -90,33 +84,30 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
         await update.message.reply_text(
             f"""
-🎁 تبدأ ب 10$ + Bonus 30$
+🎁 تبدأ ب 10$ فقط
+
+ومع التوثيق تاخذ Bonus 30$
 
 سجل من هنا 👇
 {ROBO_LINK}
 
-من بعد رجع واضغط:
+ومن بعد رجع واضغط:
 ✅ سجلت بالفعل
 """
         )
 
     elif "سجلت بالفعل" in text:
 
-        keyboard = [
-            [InlineKeyboardButton("📩 تواصل معايا للتفعيل", url=CONTACT_LINK)]
-        ]
-
-        reply_markup = InlineKeyboardMarkup(keyboard)
-
         await update.message.reply_text(
-            """
-ممتاز 🔥
+            f"""
+ممتاز 👌
 
-📌 صيفط ليا screenshot ديال التسجيل + dépôt
+📩 تواصل معايا هنا باش نتأكد من التسجيل:
 
-ومن بعد نفعّل ليك الدخول لقناة VIP 👇
-""",
-            reply_markup=reply_markup
+👉 {ADMIN_USERNAME}
+
+🔒 ومن بعد نعطيك الولوج لقناة VIP
+"""
         )
 
 

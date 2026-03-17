@@ -113,7 +113,8 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
         )
 
 elif "سجلت بالفعل" in text:
-   
+
+    keyboard = [
         [InlineKeyboardButton("📩 تواصل معايا دابا", url="https://t.me/OmartradingAux")]
     ]
 
@@ -121,11 +122,11 @@ elif "سجلت بالفعل" in text:
 
     await update.message.reply_text(
         """
-ممتاز 👌
+👌 ممتاز
 
 تواصل معايا هنا باش نتأكد من التسجيل 📩
 
-ومن بعد نعطيك الولوج لقناة VIP 🔒
+ومن بعد نعطيك الولوج لقناة VIP 🔐
 """,
         reply_markup=reply_markup
     )

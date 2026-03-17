@@ -56,7 +56,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 📈 باغي إشارات GOLD جاهزة؟
 
-🤖 AI BOT كيقرا المارشي وكيعطيك فرص واضحة
+🤖 هاد AI BOT كيقرا المارشي وكيعطيك فرص واضحة
 
 باش تبدا 👇
 اختار واحد من المنصات وسجل

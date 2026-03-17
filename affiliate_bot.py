@@ -16,7 +16,10 @@ DATABASE_URL = os.getenv("DATABASE_URL")
 EXNESS_LINK = "https://one.exnessonelink.com/a/zi8w32eknv"
 ROBO_LINK = "https://my.roboforex.com/en/?a=omawl"
 
-# بدل هاد اليوزرنيم ديالك 👇
+# روابط الشرح
+EXNESS_TUTORIAL = "https://t.me/+z5iRMblllboxYWNk"
+ROBO_TUTORIAL = "https://t.me/+68YvPcWphtE3ZGM0"
+
 ADMIN_USERNAME = "@OmartradingAux"
 
 
@@ -39,26 +42,26 @@ created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 conn.commit()
 
 
-# -------- START COMMAND --------
+# -------- START --------
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     keyboard = [
         [KeyboardButton("🔥 منصة احترافية Exness")],
-        [KeyboardButton("🎁 ابدأ ب 10$ + Bonus 30$ RoboForex")],
+        [KeyboardButton("🎁 RoboForex Bonus 30$ + 10$")],
         [KeyboardButton("✅ سجلت بالفعل")]
     ]
 
     reply_markup = ReplyKeyboardMarkup(keyboard, resize_keyboard=True)
 
     text = """
-مرحبا 👋
+👋 مرحبا
 
-📈 باغي إشارات GOLD جاهزة؟
+باغي إشارات GOLD جاهزة؟ 📈
 
-🤖 هاد AI BOT كيقرا المارشي وكيعطيك فرص واضحة
+كنقرا المارشي وكنعطيك فرص واضحة 🤖 AI BOT
 
-باش تبدا 👇
+باش تبدأ 👇
 اختار واحد من المنصات وسجل
 
 ومن بعد رجع واضغط:
@@ -68,7 +71,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text(text, reply_markup=reply_markup)
 
 
-# -------- MESSAGE HANDLER --------
+# -------- HANDLER --------
 
 async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
@@ -80,8 +83,11 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
             f"""
 🔥 اختيار احترافي
 
-سجل من هنا 👇
+📥 التسجيل:
 {EXNESS_LINK}
+
+📺 شرح التسجيل خطوة بخطوة:
+{EXNESS_TUTORIAL}
 
 ومن بعد رجع واضغط:
 ✅ سجلت بالفعل
@@ -93,11 +99,13 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await update.message.reply_text(
             f"""
 🎁 تبدأ ب 10$ فقط
+وتاخد Bonus 30$
 
-ومع التوثيق تاخذ Bonus 30$
-
-سجل من هنا 👇
+📥 التسجيل:
 {ROBO_LINK}
+
+📺 شرح التسجيل:
+{ROBO_TUTORIAL}
 
 ومن بعد رجع واضغط:
 ✅ سجلت بالفعل
@@ -110,7 +118,7 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
             f"""
 ممتاز 👌
 
-📩 تواصل معايا هنا باش نتأكد من التسجيل:
+تواصل معايا هنا باش نتأكد من التسجيل 👇
 
 👉 {ADMIN_USERNAME}
 
@@ -147,7 +155,6 @@ Wins: {wins}
 Loss: {loss}
 
 Winrate: {winrate} %
-
 Profit: {profit} $
 
 Status: Running
@@ -156,7 +163,7 @@ Status: Running
     await update.message.reply_text(text)
 
 
-# -------- BOT START --------
+# -------- RUN --------
 
 app = ApplicationBuilder().token(BOT_TOKEN).build()
 

@@ -47,25 +47,28 @@ conn.commit()
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     keyboard = [
-        [KeyboardButton("🔥 منصة احترافية Exness")],
-        [KeyboardButton("🎁 RoboForex Bonus 30$ + 10$")],
+        [KeyboardButton("✅ 🔥 Start with Exness")],
+        [KeyboardButton("🎁 Get Bonus (RoboForex)")],
         [KeyboardButton("✅ أكملت التسجيل")]
     ]
 
     reply_markup = ReplyKeyboardMarkup(keyboard, resize_keyboard=True)
 
     text = """
-👋 مرحبا
+📊 GOLD Signals يومية + Copy Trading
 
-باغي إشارات GOLD/EUR جاهزة؟ 📈
+💰 تربح حتى وانت ما فاهمش السوق
 
-🤖 هاد AI BOT كيقرا المارشي وكيعطيك فرص واضحة
+⚡ باش تبدا دابا:
 
-باش تبدأ 👇
-اختار واحد من المنصات وسجل
+1. فتح حساب (1 دقيقة)
+2. دير Deposit
+3. فعل Copy
 
-ومن بعد رجع واضغط:
-✅ أكملت التسجيل
+🎯 منين تكمل غادي تدخل VIP Signals
+
+👇 اختار المنصة وابدأ:
+
 """
 
     await update.message.reply_text(text, reply_markup=reply_markup)
